@@ -1,5 +1,249 @@
 // impltation fifle
 
+//--------------------------------------------------------------------
+//
+//  Laboratory 1                                          Text.cpp
+//
+//  SOLUTION: Array implementation of the String ADT
+//
+//--------------------------------------------------------------------
+
+#include <iostream>
+#include <iomanip>
+#include <cassert>
+#include <cstring>
+#include "Text.h"
+
+//--------------------------------------------------------------------
+
+Text:: Text ( const char *charSeq ) 
+
+// Creates a string containing the delimited sequence of characters
+// charSeq. Allocates enough memory for this string.
+
+{
+       // Account for null
+
+    try
+    {
+         // Allocate memory
+    }
+    catch ( bad_alloc &e )
+    {
+        throw error
+    }
+
+    strcpy(buffer,charSeq);             // Copy the string
+}
+
+//--------------------------------------------------------------------
+
+Text:: Text ( const Text &valueText )
+
+// Copy constructor, creates a copy of valueText. Called whenever
+//
+//   1) a string is passed to a function using call by value,
+//   2) a function returns a string, or
+//   3) a string is initialized using another string -- as in the
+//      declarations:
+//                      Text str1("First"),
+//                             str2 = str1;
+
+   
+
+{
+      // Allocate memory
+      // Copy the string
+}
+
+//--------------------------------------------------------------------
+
+void Text:: operator = ( const Text& other )
+
+// Assigns other to a Text object.
+
+{
+    // Length of other
+
+    if           // If other will not fit
+    {
+                 // Release buffer and
+                 //  allocate a new
+                //  (larger) buffer
+    }
+
+        // Copy other
+}
+
+//--------------------------------------------------------------------
+
+Text:: ~Text ()
+
+// Frees the memory used by the Text object buffer.
+
+{
+    delete [] buffer;
+}
+
+//--------------------------------------------------------------------
+
+int Text:: getLength () const
+
+// Returns the number of characters in the Text object buffer (excluding the
+// null character).
+
+{
+    return strlen(buffer);
+}
+
+//--------------------------------------------------------------------
+
+char Text:: operator [] ( int n ) const
+
+// Returns the nth character in a Text object -- where the characters are
+// numbered beginning with zero.
+
+{
+    
+}
+
+//--------------------------------------------------------------------
+
+void Text:: clear ()
+
+// Clears a Text object -- i.e., makes it empty. The buffer size
+// remains unchanged.
+
+{
+ 
+}
+
+//--------------------------------------------------------------------
+
+void Text:: showStructure () const
+
+// Outputs the characters in a string. This operation is intended for
+// testing/debugging purposes only.
+
+{
+        // Loop counter
+
+    for  
+ 
+    for  ;
+}
+
+//--------------------------------------------------------------------
+//
+//                        In-lab operations
+//
+//--------------------------------------------------------------------
+
+istream & operator >> ( istream &input, Text &inputText )
+
+// (In-lab 1)  Text input function. Extracts a string from istream input and
+// returns it in inputText. Returns the state of the input stream.
+
+{
+    const int textBufferSize = 256;     // Large (but finite)
+    char textBuffer [textBufferSize];   // text buffer
+
+    // Read a string into textBuffer, setw is used to prevent buffer
+    // overflow.
+
+    
+
+    // Apply the Text(char*) constructor to convert textBuffer to
+    // a string. Assign the resulting string to inputText using the
+    // assignment operator.
+
+     
+
+    // Return the state of the input stream.
+
+    return input;
+}
+
+//--------------------------------------------------------------------
+
+ostream & operator << ( ostream &output, const Text &outputText )
+
+// (In-lab 1)  Text output function. Inserts outputText in ostream output.
+// Returns the state of the output stream.
+
+{
+ 
+}
+
+
+//--------------------------------------------------------------------
+
+Text Text:: toUpper ( ) const
+
+// (In-lab 2)  Returns a Text object containing an upper-case copy of Text object.
+
+{
+   
+        
+   }
+
+   // Option 1: Correct. Create correctly initialized object, and return object reference by
+   // dereferencing new object's address.
+   //return Text( tempBuf );
+
+   // Option 2: Also correct. Wordier, but perhaps easier for students to follow.
+   Text upper( tempBuf );
+   return upper;
+}
+
+//--------------------------------------------------------------------
+
+Text Text:: toLower ( ) const
+
+// (In-lab 2)  Returns a Text object containing a lower-case copy of Text object.
+
+{
+    
+   }
+
+   return Text(tempBuf);
+}
+
+
+//--------------------------------------------------------------------
+
+bool Text::operator == ( const Text &other ) const
+
+// (In-lab 3)  Equality relational operator. Returns true if leftText is equal to
+// other. Otherwise returns false.
+
+{
+     
+}
+
+//--------------------------------------------------------------------
+
+bool Text::operator < ( const Text &other ) const
+
+// (In-lab 3)  "Less than" relational operator. Returns true if leftText is less
+// than other. Otherwise returns false.
+
+{
+     
+}
+
+//--------------------------------------------------------------------
+
+bool Text::operator > ( const Text &other ) const
+
+// (In-lab 3)  "Greater than" relational operator. Returns true if leftText is
+// greater than other. Otherwise returns false.
+
+{
+    return ( strcmp(buffer,other.buffer) > 0 );
+}
+
+
 
 
 
